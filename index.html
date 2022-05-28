@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Los tech pro, los mejores audífonos para estudiantes"
+    />
+    <meta name="robots" content="index, follow" />
+    <title>Sitio de los tech pro</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@400;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/normalize.css" />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+
+  <body>
+    <header class="header">
+      <div class="contenedor contenido-header">
+        <!--La 2da clase la creo
+para comenzar a escribir código html que afecte a esta parte-->
+        <div class="imagen-header">
+          <picture>
+            <source
+              sizes="1920w"
+              srcset="img/header.webp 1920w"
+              type="image/webp"
+            />
+            <source
+              sizes="1920w"
+              srcset="img/header.avif 1920w"
+              type="image/avif"
+            />
+            <source
+              sizes="1920w"
+              srcset="img/header.jpg 1920w"
+              type="image/jpg"
+            />
+            <img
+              loading="lazy"
+              decoding="async"
+              src="img/header.png"
+              lazyalt="imagen"
+            />
+            <!--lo útimo para no tener un flashaso de contenido. width="1000" height="600" esto es 
+                recomendable según las especificaciones de chrome-->
+          </picture>
+        </div>
+        <!--.imagen-header-->
+
+        <div class="texto-header">
+          <p class="text-sonido-profesional">Sonido profesional</p>
+
+          <h1 class="nombre-producto degradado-verde">Tech PRO</h1>
+
+          <p class="description-producto">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore
+            magnam quisquam optio obcaecati ex enim saepe aliquid? Inventore
+            alias odit sed, ab voluptatum ad nihil perferendis nobis rem
+            voluptate sapiente!
+          </p>
+
+          <p class="precio-producto">Desde <span>$299</span></p>
+        </div>
+        <!--Aqui termina texto header-->
+      </div>
+    </header>
+
+    <section class="contenedor">
+      <!--Seccion de iconos -->
+      <div class="iconos">
+        <div class="icono">
+          <!--Estos iconos utilizan un div cada uno-->
+          <img src="img/icono-sonido.svg" alt="icono de sonido" />
+
+          <h3>Gran sonido</h3>
+
+          <p>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Hic
+            consequuntur earum, non assumenda quidem libero ratione numquam
+            labore neque! Suscipit
+          </p>
+        </div>
+
+        <div class="icono">
+          <!--Estos iconos utilizan un div cada uno-->
+          <img src="img/icono-garantia.svg" alt="icono garantia" />
+
+          <h3>Garantia de por vida</h3>
+
+          <p>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Hic
+            consequuntur earum, non assumenda quidem libero ratione numquam
+            labore neque! Suscipit
+          </p>
+        </div>
+
+        <div class="icono">
+          <!--Estos iconos utilizan un div cada uno-->
+          <img src="img/icono-bateria.svg" alt="icono bateria" />
+          <h3>+20 horas de bateria</h3>
+
+          <p>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Hic
+            consequuntur earum, non assumenda quidem libero ratione numquam
+            labore neque! Suscipit
+          </p>
+        </div>
+      </div>
+    </section>
+    <section class="sobre-los-tech-Pro">
+      <div class="contenedor sobre-techPro">
+        <div class="texto-sobre-tech">
+          <h3>Sobre los <span>Tech PRO</span></h3>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo soluta
+            beatae commodi sit quisquam velit libero saepe atque, nisi, tempore
+            assumenda ipsum a pariatur vel blanditiis expedita.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <main class="contenedor modelos">
+      <h2 class="text-center degradado-verde header-modelos">
+        Elige tus techPRO
+      </h2>
+
+      <div class="listado-modelos">
+        <div class="modelo modelo-x">
+          <h3>TechPRO X</h3>
+          <p class="precio">$299</p>
+        </div>
+
+        <div class="modelo modelo-y">
+          <h3>TechPRO Y</h3>
+          <p class="precio">$399</p>
+        </div>
+
+        <div class="modelo modelo-z">
+          <h3>TechPRO Z</h3>
+          <p class="precio">499</p>
+        </div>
+      </div>
+    </main>
+    <section class="newsletter">
+      <div class="contenido-newsletter contenedor">
+        <div class="texto-newsletter">
+          <h2>Recibe actualizaciones</h2>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos
+            dolorem quam ab nisi quibusdam, exercitationem possimus corrupti
+            repellat earum dolores ex delectus eveniet voluptatum qui sed! Modi
+            ut deserunt porro.
+          </p>
+
+          <form action="" class="formulario">
+            <div class="input">
+              <input type="text" placeholder="E-mail" />
+            </div>
+            <input type="submit" value="Inscribirme" />
+          </form>
+        </div>
+      </div>
+
+
+    </section>
+
+    <footer class="footer">
+      <p>Todos los derechos reservados</p>
+    </footer>
+  </body>
+</html>

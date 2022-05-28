@@ -1,0 +1,522 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap');
+/*Elementales*/
+
+/*CUSTOM PROPERTIES, VARIABLES*/
+:root {
+  --fuentePrincipal : 'Roboto', sans-serif;
+  --fuenteSecundaria: 'Lato', sans-serif;
+/*La ventaja es que si nosotros le queremos cambiar la propiedad
+a muchos elementos, venimos aquí y se la cambiamos rápido, en
+automático de lo cambia a todos*/  
+  --primario: #1073BA;
+  --secundario: #00DA55;
+  --gris: #3B3B3B;
+  --blanco: #fff;
+  --negro: #1F1E1E;
+  --grisClaro: #e1e1e1;
+/*También aguanta medidas y un sin fin de cosas, pues es eso, 
+una variable*/
+  --separacion: 5rem;
+}
+/*Son básicamente lo mismo que una variable*/
+* {
+    margin: 0;
+    padding: 0;
+}
+html {
+box-sizing: border-box;
+font-size: 62.5%;
+}
+ *, *:before, *:after {
+  box-sizing: inherit;
+ }
+body {
+    font-family: var(--fuentePrincipal);/*Así se usan*/
+    font-size: 1.6rem;/*Medida estandar párrafos*/
+    line-height: 1.5;/*El interlineado puede o no llevar unidad
+pero en este caso no lo lleva*/
+}
+h1 {
+    margin: 0;
+}
+
+/*Globales*/
+.contenedor {
+    max-width: 120rem;/*Hará que nunca pase de los 1200px*/
+    width: 90%;/*Hara que tome el 90% de lo que haya disponible
+Los 2 son de siempre*/
+     margin: 0 auto;
+}
+h1,h2,h3 {
+    font-weight: 900;
+    font-family: var(--fuenteSecundaria);
+    margin: calc(var(--separacion) / 2) 0;
+/*Arriba tenemos una separacion, probablemente me gustaría que
+midiera menos, por lo que puedo ponerle calc(de calcular), y a 
+su vez lo divido entre dos, así quedando con una separación de 
+2.5rem arriba y 2.5rem abajo. y a los lados 0*/        
+}
+h1 {
+    font-size: 4.4rem;
+}
+h2 {
+    font-size: 3.6rem;
+}
+h3 {
+    font-size: 2.8rem;
+}
+/*Las imágenes responsive se hacen...*/
+img {
+    max-width: 100%;
+    display: block;
+}
+/*Utilidades*/
+/*Degradado verde*/
+.degradado-verde {
+   color: transparent;/*Esto para eliminar el color de fondo que podría 
+llegar a tener el texto*/
+   background: linear-gradient(to right, var(--primario) 0%, var(--secundario) 100%);
+/*El primero es el lugar en donde queremos que empiece, después su color y desde
+donde.Después el 2do color o 3ro quizás, y hasta donde queremos que termine*/
+  
+/*Muchos navegadores no aceptan el clip, pero si aceptan el web*/ 
+ -webkit-background-clip: text; 
+
+ background-clip: text;/*Con esta propiedad le vamos a decir en qué parte 
+del elemento queremos que esté nuestro degradado, ya que por defecto se coloca
+de fondo*/
+
+}
+
+.text-center {
+    text-align: center;
+}
+
+/*Dandole estilos al HEADER*/
+
+.header {
+    background-color: var(--negro);
+ /*Aqui le estamos diciendo que nos calcule una separación conforme lo que mida
+ mi custom properties, qye es el tamaño que le asigne por 3*/
+    padding: calc(var(--separacion) * 2) 0;
+}
+.header img {
+    width: 100%;
+    height: auto;
+}
+/*Éste sitio está orientado a mobile first, o sea que lo estamos 
+haciendo conforme vamos viendo cómo se adapta a movil, mientras que los 
+mediaQueries los vamos a hacer para dispositivos grandes*/
+@media(min-width: 768px){
+  .contenido-header {
+      display: grid;
+      grid-template-columns: repeat(2,1fr);
+  }
+}
+/*Texto header*/
+ .texto-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: var(--blanco);
+ } /*Esto lo pude hacer con un simple, text-align: center
+pero si después quiero modificar el elemento y colocar otro tipo de cosas me
+conviene por rapidez hacerlo de esta manera*/
+.texto-header p{
+  margin: 0;
+}
+@media(min-width: 768px){
+ .texto-header {
+     display: flex;
+     flex-direction: column;
+     align-items: flex-start;
+     justify-content: space-around;
+ }/*También lo pude hacer con un text-align: left */
+}
+.text-sonido-profesional {
+    font-size: 3rem;
+    font-weight: 900;
+}
+.nombre-producto {
+  font-size: 6rem;
+ line-height: 1;
+ 
+}/*Obvio en dispositivos más grandes una medida para celular le va a quedar 
+peque*/
+@media(min-width: 768px){
+  .nombre-producto {
+      font-size: 10rem;
+      margin: 0;/*Pero aquí podemos ver que tiene igual otra separacuón que no es
+      ni margin ni padding, y es el interlineado*/
+ line-height: 1;/*De 1 significa que sólo lo que ocupa su contenido*/
+  
+}}
+.precio-producto span{
+    font-weight: 900;
+    font-size: 5rem;
+}
+
+
+
+/*section icons*/
+
+@media(min-width: 768px){
+  .iconos {
+      display: flex;
+      gap: 2rem;
+  }
+}
+.icono {
+    text-align: center;
+    margin: 2rem;
+}
+
+.iconos {
+    padding: 5rem;
+}
+.iconos img {
+ width: 7rem;
+ margin: 0 auto;
+}
+.icono h3 {
+    color: var(--primario);
+    text-transform: uppercase;
+    margin-top: calc(var(--separacion) / 2) ;   
+}
+/*Section, sobre los tech PRO*/
+.sobre-los-tech-Pro {
+    background-image:linear-gradient(to bottom, transparent 50%, var(--primario) 0%), url(../img/imagen-mujer.jpg);
+/*Aqui si le dijeramos que queremos que la imagen esté arriba, pero el degradado
+no se respete en los dos colores separados, que son transparen(en donde va 
+mi imagen) y el color primario, sería al 100%, pero en este caso como 
+yo no quiero que interfiera en mi imagen, sino que esté separada le pongo al 0%*/
+
+   background-position: right;
+   background-repeat:repeat, no-repeat;
+/*Aqui le estamos poniendo la posición right para que me muestre
+el lado derecho de mi imagen, pero en repeat le estamos diciendo que queremos 
+que el color se repita, pero la imagen no, por eso repeat y
+no-repeat*/   
+background-size: cover;
+
+}
+/*Recordatorioo jajajj lo estamos haciendo mobile first*/
+@media(min-width: 769px){
+  .sobre-los-tech-Pro {
+    background-image:linear-gradient(to left, transparent 50%, var(--primario) 0%), url(../img/imagen-mujer.jpg);
+   /* background-position: right;*/
+   background-size: 100%, 160rem;
+   background-repeat:no-repeat;
+  
+}
+}
+
+
+.sobre-techPro {
+    display: grid;
+    grid-template-rows: repeat(2,40rem);
+    /*Aqui le estamos diciendo que queremos poner dos filas
+    cada una con un tamaño de 40 rem*/
+    row-gap: var(--separacion);
+}
+@media(min-width: 769px){
+  .sobre-techPro {
+      grid-template-rows: unset;
+      grid-template-columns: repeat(2,1fr);
+      row-gap: unset;
+      column-gap: 6rem;
+      padding: calc(var(--separacion) * 2);
+  }
+}
+.texto-sobre-tech{
+    grid-row: 2 / 3;
+    color: var(--blanco);
+}
+@media(min-width: 769px){
+    .texto-sobre-tech {
+        grid-row: unset;
+        grid-column: 1 / 2;
+    }
+}
+.texto-sobre-tech p {
+  font-size: 2rem;
+  line-height: 2;
+}
+
+.texto-sobre-tech h2 {
+    font-size: 4rem;
+}
+/*seccion de modelos */
+
+.modelos {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    align-items: center;
+    padding: var(--separacion) 0;
+}
+
+.header-modelos {
+    font-size: 6rem;
+    font-weight: 900;
+    margin-bottom: var(--separacion);
+
+}
+.listado-modelos {
+    display: flex;
+    width: 100%;/*
+    grid-template-columns: repeat(5,1fr);
+    grid-template-rows: repeat(4,1fr);*/
+    flex-direction: column-reverse;
+/*TIP para el futuro...
+cuando un usuario entra al sitio y quiere comprar algo
+nosotros pondremos los productos más caros o las versiones
+más caras de los productos(puede variar dependiendo
+cuál nos genere más utilidad, ya que si un producto es barato
+pero nos genera una utilidad alta, nosotros vamos a querer
+que ese producto se muestre primero, de lo contrario, si
+el producto de precio final es más caro pero nos genera
+una utilidad baja entonces no nos conviene ponerlo hasta arriba)
+
+Es por eso que pusimos el column reverse, para mostrar el más
+caro al inicio*/
+}
+@media(min-width: 992px){
+    .listado-modelos {
+        display: grid;/*eL MEDIA QUERY sobreescribe las propiedades que 
+ya antes colocamos */
+        grid-template-columns: repeat(2,1fr);/*Aquí solo son 2
+        columnas, pero con dos rows, así que haremos 2 columnas 
+        con 2 filas*/
+        grid-template-rows: repeat(2,20rem);
+        gap: 4rem;
+    }/*
+    .modelo-x {
+        grid-column: 1 / 3;
+        grid-row: 1 / 2;
+    }
+    .modelo-y  {
+        grid-column: 1 / 3;
+        grid-row: 2 / 4;
+    }
+    .modelo-z {
+        grid-column: 3 / 5;
+        grid-row: 1 / 4;
+        
+    }*/
+    
+}
+
+.modelo {
+    background-color: var(--grisClaro);
+    margin-bottom: 2rem;
+    padding-left: 4rem;
+    color: var(--primario);
+    border-radius: 2rem;
+    min-height: 20rem;/*Que cada uno mida mínimo 20 rem*/
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-position: 90% center;/*El primer valor de backgroun
+position es cuánto se va a recorrer de izquierda a derecha, 
+el 2do valor es de arriba hacia abajo.
+
+Entonces podemos decirle que de izquierda a derecha tome el 90% y
+de arriba hacia abajo podríamos decirle que tome un porcentaje o una
+medida que queramos, pero  es más sencillo dejárselo a css y decirle que
+esté centrado.
+
+Ahora, nosotros queremos que las imágenes estén más pequeñas, no tan
+grandes, por lo que le podemos poner un background size e ir 
+jugando con los valores.*/
+background-size: 15rem;
+
+    /*Aquí está pasando algo que pss no quiero que pase jajaj
+amm el último elemento en la página se le está agregando un
+margin hacia abajo, pero no quiero eso.
+
+Pero nos encontramos con que el último en la página no es 
+el último enrealidad, ya que nosotros modificamos eso con 
+css, si lo vemos con last-of-type podemos ver que este 
+se va a poner en el último del html jajaj y como nosotros 
+cambiamos eso con css pss el último es el primero ahora.
+
+Para eso tenemos first-of-type
+transition: all 300ms;
+Pero tenemos que decirle a css qu ees lo que queremos animar.
+Si queremos animar todos le podemos decir (all). esto significa que 
+queremos una transición de todo, tanto como de scale como de rotate
+
+PERO ESO EWS MALA PRÁCTICA, YA QUE SE DICE ESTATE ATENTO A TODOS LOS V
+VALORES, PERO AVECES SOLO ES UN VALOR O 2 Y SI TOMA TODOS ES UNA PERDIDA
+EN MEMORIA  MUUUY IMPORTANTE.
+
+Para evitar esto la buena práctica es la siguiente...*/
+transition-property: transform background-size;/*Aqui le estamos diciendo que es lo que
+queremos animar*/
+transition-duration: .3s;/*Y aquí le estamos diciendo cuánto es lo que 
+queremos que dure la transición*/
+}
+.modelo:hover {
+    transform: scale(1.1) ;/*Scale de 1.1 es que crezca 10%
+    de su tamaño. también se puede hacer al revés.
+.8 por ejemplo sería lo mismo que decirle que cuando pasemos por ahí
+nos de un 80% del tamaño del elemento.
+
+Hay otro que es rotate y este ocupa medidas en de deg por 
+ejemplo:
+rota
+    
+    transform: rotate(7deg);*/
+    background-size: 30rem;
+
+}
+@media(min-width: 769px){
+    .modelo {
+        margin-bottom: 0;
+    }/*Esto lo usé simplemente para quitarle el borde al 
+    elemento.*/
+    
+}
+
+.modelo:first-of-type {
+    margin-bottom: 0;
+}
+.modelo-z {
+    background-image: url(../img/modelo-z.svg);
+    background-repeat: no-repeat;
+    background-color: var(--primario);
+    color: var(--blanco);
+}
+@media(min-width: 769px){
+    .modelo-z {
+        grid-column: 2 / 3;
+        grid-row: 1 / 3;
+        background-size: 25rem;
+    }
+ 
+}
+/*Ahora vienen las imágenes...*/
+.modelo-y {
+    background-image: url(../img/modelo-y.svg);
+    background-repeat: no-repeat;
+/*Pero nuestras imágenes aparecen en el lado izquierdo, si nosotros 
+queremos que se vayan al lado derecho le podemos cambiar
+el background position y para no hacerlo a cada una nos 
+iremos a la clase que comparten todos estos. */    
+}
+.modelo-x {
+    background-image: url(../img/modelo-x.svg);
+    background-repeat: no-repeat;/*Aqui ya repetí 2 veces
+    la propiedad bgrepeat: no-repeat, por lo que la podría
+    haber especificado en el modelo, pero aveces se me olvida
+    y pss lo dejo así*/
+}
+
+.modelo h3 {
+    font-size: 2.4rem;
+    line-height: 0;
+}
+.modelo .precio {
+    font-size: 4rem;
+    font-weight: 900;
+}
+.modelo-z .precio{
+    font-size: 6rem;
+}
+@media(min-width: 769px){
+    .modelo-z h3 {
+        font-size: 4rem;
+    }
+}
+
+/*NEWSLETTER*/
+
+.newsletter {
+    background-image: linear-gradient(to bottom, transparent 50%, var(--blanco) 0%), url(../img/newsletter.webp);
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-size: 100%, 73rem;
+    margin-bottom: 12rem;
+    
+}
+@media (min-width: 768px) {
+    .newsletter {
+        background-image: linear-gradient(to right, transparent 50%, var(--blanco) 0%), url(../img/newsletter.webp);
+        background-size: 100%, 150rem; 
+        background-position: center, -21rem 0rem;/*Aquí podemos modificar 
+las propiedades tanto como queramos, esto lo estamos haciendo para que 
+en desktop se acomode bien la imagen, ya que en móvil 
+la verdad es que es menos trabajo, mucho menos.
+
+El primero es de arriba abajo, el 2do es de izquierda a derecha.
+*/
+
+        background-size: 100%, 100rem; 
+        padding: 10rem 0; 
+    }
+}
+
+@media(min-width: 1600px){
+    .newsletter {
+        background-size: 100%, 200rem;
+        background-position: center, 0 -30rem ;
+    }
+}
+.contenido-newsletter {
+    display: grid;
+    grid-template-rows:  repeat(2,30rem);
+/*Recordatorio: grid-rows se puede usar más que nada para aumentarle altura*/    
+    gap: var(--separacion);
+}
+@media(min-width: 768px){
+    .contenido-newsletter {
+        grid-template-rows: unset;
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+.texto-newsletter {
+    grid-row: 2 / 3;
+}
+@media(min-width: 768px ){
+    .texto-newsletter {
+        grid-row: unset;
+        grid-column: 2 / 3;
+    }
+}
+
+/*
+.formulario {
+
+}*/
+.formulario input[type="text"] {
+    width: 100%;
+    padding: 1rem;
+}
+
+.formulario input[type="submit"]{
+    width: 100%; 
+    padding: 2rem;
+    background-color: var(--primario);
+    color: var(--blanco);
+    text-transform: uppercase;
+    font-size: 2rem;
+    font-weight: 900;
+    border: none;/*Siempre los inputs de tipo submit van
+a tener un border, para eliminarlo yo pensé que era boder-color
+pero no jajaj era border y asignarle el valor de none.*/
+}/*Mailchimp*/
+
+/*Footer*/
+
+.footer p{
+    text-align: center;
+    font-family: var(--fuenteSecundaria);
+    text-transform:  uppercase;
+    font-size: 2.4rem;
+    color: var(--primario);
+    padding-bottom: 5rem;
+    font-weight: 700;
+}
+
+
